@@ -76,7 +76,7 @@ export default function CategoriesSection() {
       component="section"
       ref={ref}
       sx={{
-        py: { xs: 10, md: 16 },
+        py: { xs: 6, md: 16 },
         background:
           "linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,0.4) 50%, rgba(17,24,39,0) 100%)",
       }}
@@ -85,7 +85,7 @@ export default function CategoriesSection() {
         <Stack
           spacing={1.5}
           sx={{
-            mb: { xs: 5, md: 8 },
+            mb: { xs: 3, md: 8 },
             maxWidth: 540,
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -105,27 +105,27 @@ export default function CategoriesSection() {
           </Typography>
           <Typography
             variant="h2"
-            sx={{ fontSize: { xs: "2rem", md: "2.75rem" } }}
+            sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
           >
             8 大新聞分類
           </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: "1.1rem" }}>
+          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
             從市場行情到總體經濟，全面涵蓋加密貨幣世界的各個面向
           </Typography>
         </Stack>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 1.5, md: 3 }}>
           {categories.map((cat, index) => (
             <Grid key={cat.name} size={{ xs: 6, sm: 4, md: 3 }}>
               <Paper
                 elevation={0}
                 sx={{
-                  p: { xs: 2.5, md: 3 },
+                  p: { xs: 2, md: 3 },
                   height: "100%",
                   bgcolor: "background.paper",
                   border: "1px solid",
                   borderColor: "rgba(148, 163, 184, 0.06)",
-                  borderRadius: 3,
+                  borderRadius: "16px",
                   cursor: "default",
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -140,7 +140,7 @@ export default function CategoriesSection() {
                   },
                 }}
               >
-                <Stack spacing={1.5}>
+                <Stack spacing={{ xs: 1, md: 1.5 }}>
                   <Box
                     className="cat-icon"
                     sx={{
@@ -151,12 +151,12 @@ export default function CategoriesSection() {
                   >
                     {cat.icon}
                   </Box>
-                  <Typography sx={{ fontWeight: 600, fontSize: "1.05rem" }}>
+                  <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.95rem", md: "1.05rem" } }}>
                     {cat.name}
                   </Typography>
                   <Typography
                     color="text.secondary"
-                    sx={{ lineHeight: 1.75, fontSize: "0.9rem" }}
+                    sx={{ lineHeight: { xs: 1.6, md: 1.75 }, fontSize: { xs: "0.8rem", md: "0.9rem" } }}
                   >
                     {cat.desc}
                   </Typography>

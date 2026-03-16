@@ -13,7 +13,7 @@ export default function VideoSection() {
       component="section"
       ref={ref}
       sx={{
-        py: { xs: 8, md: 12 },
+        py: { xs: 6, md: 12 },
         position: "relative",
         overflow: "hidden",
         opacity: isVisible ? 1 : 0,
@@ -26,8 +26,8 @@ export default function VideoSection() {
           variant="h2"
           textAlign="center"
           sx={{
-            fontSize: { xs: "2rem", md: "2.75rem" },
-            mb: 2,
+            fontSize: { xs: "1.75rem", md: "2.75rem" },
+            mb: { xs: 1, md: 2 },
           }}
         >
           看看它如何
@@ -39,7 +39,7 @@ export default function VideoSection() {
           textAlign="center"
           sx={{
             color: "text.secondary",
-            fontSize: { xs: "1rem", md: "1.15rem" },
+            fontSize: { xs: "0.9rem", md: "1.15rem" },
             maxWidth: 520,
             mx: "auto",
             mb: { xs: 4, md: 6 },
@@ -51,7 +51,7 @@ export default function VideoSection() {
         <Box
           sx={{
             position: "relative",
-            borderRadius: "20px",
+            borderRadius: { xs: "12px", md: "16px" },
             overflow: "hidden",
             border: "1px solid rgba(148,163,184,0.1)",
             boxShadow: "0 8px 48px rgba(0,0,0,0.4)",
@@ -59,7 +59,7 @@ export default function VideoSection() {
               content: '""',
               position: "absolute",
               inset: -1,
-              borderRadius: "20px",
+              borderRadius: "16px",
               padding: "1px",
               background: "linear-gradient(135deg, rgba(247,147,26,0.3), transparent 60%)",
               WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",

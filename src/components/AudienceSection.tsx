@@ -52,13 +52,13 @@ export default function AudienceSection() {
       component="section"
       ref={ref}
       className="dot-grid"
-      sx={{ py: { xs: 10, md: 16 } }}
+      sx={{ py: { xs: 6, md: 16 } }}
     >
       <Container maxWidth="lg">
         <Stack
           spacing={1.5}
           sx={{
-            mb: { xs: 5, md: 8 },
+            mb: { xs: 3, md: 8 },
             maxWidth: 540,
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -78,27 +78,27 @@ export default function AudienceSection() {
           </Typography>
           <Typography
             variant="h2"
-            sx={{ fontSize: { xs: "2rem", md: "2.75rem" } }}
+            sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
           >
             誰適合使用
           </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: "1.1rem" }}>
+          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
             無論你的角色是什麼，只要關注加密貨幣，都能從中受益
           </Typography>
         </Stack>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 2, md: 3 }}>
           {audiences.map((audience, index) => (
             <Grid key={audience.title} size={{ xs: 12, sm: 6 }}>
               <Paper
                 elevation={0}
                 sx={{
-                  p: { xs: 3, md: 4 },
+                  p: { xs: 2.5, md: 4 },
                   height: "100%",
                   bgcolor: "background.paper",
                   border: "1px solid",
                   borderColor: "rgba(148, 163, 184, 0.06)",
-                  borderRadius: 4,
+                  borderRadius: "16px",
                   position: "relative",
                   overflow: "hidden",
                   opacity: isVisible ? 1 : 0,
@@ -112,13 +112,13 @@ export default function AudienceSection() {
                   },
                 }}
               >
-                <Stack spacing={2.5}>
+                <Stack spacing={{ xs: 2, md: 2.5 }}>
                   <Box
                     className="audience-icon-bg"
                     sx={{
-                      width: 48,
-                      height: 48,
-                      borderRadius: "14px",
+                      width: { xs: 40, md: 48 },
+                      height: { xs: 40, md: 48 },
+                      borderRadius: { xs: "12px", md: "14px" },
                       bgcolor: `${audience.accent}0A`,
                       border: "1px solid",
                       borderColor: `${audience.accent}15`,
@@ -132,13 +132,13 @@ export default function AudienceSection() {
                     {audience.icon}
                   </Box>
 
-                  <Typography variant="h6" sx={{ fontSize: "1.2rem" }}>
+                  <Typography variant="h6" sx={{ fontSize: { xs: "1.05rem", md: "1.2rem" } }}>
                     {audience.title}
                   </Typography>
 
                   <Typography
                     color="text.secondary"
-                    sx={{ lineHeight: 1.85, fontSize: "1rem" }}
+                    sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.875rem", md: "1rem" } }}
                   >
                     {audience.description}
                   </Typography>

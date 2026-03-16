@@ -71,7 +71,7 @@ export default function FeaturesSection() {
       component="section"
       ref={ref}
       sx={{
-        py: { xs: 10, md: 16 },
+        py: { xs: 6, md: 16 },
         background:
           "linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,0.4) 50%, rgba(17,24,39,0) 100%)",
       }}
@@ -80,7 +80,7 @@ export default function FeaturesSection() {
         <Stack
           spacing={1.5}
           sx={{
-            mb: { xs: 5, md: 8 },
+            mb: { xs: 3, md: 8 },
             maxWidth: 540,
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -100,27 +100,27 @@ export default function FeaturesSection() {
           </Typography>
           <Typography
             variant="h2"
-            sx={{ fontSize: { xs: "2rem", md: "2.75rem" } }}
+            sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
           >
             AI 幫你讀新聞、抓重點
           </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: "1.1rem" }}>
+          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
             每天數十上百則加密貨幣新聞，哪些值得看？讓 AI 幫你判斷
           </Typography>
         </Stack>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={{ xs: 2, md: 3 }}>
           {features.map((feature, index) => (
             <Grid key={feature.title} size={{ xs: 12, sm: 6, lg: 4 }}>
               <Paper
                 elevation={0}
                 sx={{
-                  p: { xs: 3, md: 3.5 },
+                  p: { xs: 2.5, md: 3.5 },
                   height: "100%",
                   bgcolor: "background.paper",
                   border: "1px solid",
                   borderColor: "rgba(148, 163, 184, 0.06)",
-                  borderRadius: 4,
+                  borderRadius: "16px",
                   position: "relative",
                   overflow: "hidden",
                   opacity: isVisible ? 1 : 0,
@@ -147,7 +147,7 @@ export default function FeaturesSection() {
                           >
                             <Typography
                               sx={{
-                                fontSize: "1.4rem",
+                                fontSize: { xs: "1.2rem", md: "1.4rem" },
                                 fontWeight: 700,
                                 color: ind.color,
                                 lineHeight: 1,
@@ -172,7 +172,7 @@ export default function FeaturesSection() {
                         <Typography
                           className="feature-value"
                           sx={{
-                            fontSize: "2rem",
+                            fontSize: { xs: "1.75rem", md: "2rem" },
                             fontWeight: 700,
                             color: feature.accent,
                             lineHeight: 1,
@@ -191,13 +191,13 @@ export default function FeaturesSection() {
                     )}
                   </Box>
 
-                  <Typography variant="h6" sx={{ fontSize: "1.15rem" }}>
+                  <Typography variant="h6" sx={{ fontSize: { xs: "1rem", md: "1.15rem" } }}>
                     {feature.title}
                   </Typography>
 
                   <Typography
                     color="text.secondary"
-                    sx={{ lineHeight: 1.85, fontSize: "0.95rem" }}
+                    sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.85rem", md: "0.95rem" } }}
                   >
                     {feature.description}
                   </Typography>

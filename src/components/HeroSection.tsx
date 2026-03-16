@@ -62,12 +62,13 @@ export default function HeroSection() {
     <Box
       component="section"
       sx={{
-        minHeight: "100vh",
+        minHeight: { xs: "auto", md: "100vh" },
         display: "flex",
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
-        pt: { xs: 10, md: 0 },
+        pt: { xs: 12, md: 0 },
+        pb: { xs: 6, md: 0 },
       }}
     >
       <Box
@@ -114,7 +115,7 @@ export default function HeroSection() {
 
       <Container maxWidth="md" sx={{ position: "relative", zIndex: 1 }}>
         <Stack
-          spacing={3.5}
+          spacing={{ xs: 2.5, md: 3.5 }}
           alignItems="center"
           textAlign="center"
           sx={{ animation: "fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both" }}
@@ -126,7 +127,7 @@ export default function HeroSection() {
             sx={{
               px: 2,
               py: 0.75,
-              borderRadius: "20px",
+              borderRadius: "16px",
               border: "1px solid rgba(16, 185, 129, 0.2)",
               bgcolor: "rgba(16, 185, 129, 0.05)",
               animation: "fadeIn 0.6s ease 0.3s both",
@@ -156,7 +157,7 @@ export default function HeroSection() {
           <Typography
             variant="h1"
             sx={{
-              fontSize: { xs: "2.75rem", sm: "3.5rem", md: "4.5rem" },
+              fontSize: { xs: "2.25rem", sm: "3.5rem", md: "4.5rem" },
               lineHeight: 1.15,
               maxWidth: 700,
               color: "text.primary",
@@ -174,8 +175,8 @@ export default function HeroSection() {
               color: "text.secondary",
               maxWidth: 560,
               fontWeight: 400,
-              fontSize: { xs: "1.1rem", md: "1.25rem" },
-              lineHeight: 1.85,
+              fontSize: { xs: "0.95rem", sm: "1.1rem", md: "1.25rem" },
+              lineHeight: { xs: 1.7, md: 1.85 },
               animation: "fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both",
             }}
           >
@@ -196,9 +197,9 @@ export default function HeroSection() {
               size="large"
               href="#how-it-works"
               sx={{
-                px: 4,
-                py: 1.5,
-                fontSize: "1.05rem",
+                px: { xs: 3, md: 4 },
+                py: { xs: 1.25, md: 1.5 },
+                fontSize: { xs: "0.95rem", md: "1.05rem" },
                 borderRadius: "12px",
                 background: "linear-gradient(135deg, #F7931A 0%, #D97706 100%)",
                 boxShadow: "0 4px 24px rgba(247, 147, 26, 0.25)",
@@ -217,9 +218,9 @@ export default function HeroSection() {
               size="large"
               href="#report"
               sx={{
-                px: 4,
-                py: 1.5,
-                fontSize: "1.05rem",
+                px: { xs: 3, md: 4 },
+                py: { xs: 1.25, md: 1.5 },
+                fontSize: { xs: "0.95rem", md: "1.05rem" },
                 borderRadius: "12px",
                 borderColor: "rgba(148,163,184,0.2)",
                 color: "text.secondary",
@@ -237,7 +238,8 @@ export default function HeroSection() {
 
           <Box
             sx={{
-              pt: 6,
+              pt: { xs: 3, md: 6 },
+              display: { xs: "none", md: "block" },
               animation: "fadeIn 1s ease 1.2s both, float-gentle 3s ease-in-out infinite 1.2s",
             }}
           >

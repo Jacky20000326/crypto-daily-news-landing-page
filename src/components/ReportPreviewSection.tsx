@@ -69,13 +69,13 @@ export default function ReportPreviewSection() {
       component="section"
       ref={ref}
       className="dot-grid"
-      sx={{ py: { xs: 10, md: 16 } }}
+      sx={{ py: { xs: 6, md: 16 } }}
     >
       <Container maxWidth="lg">
         <Stack
           spacing={1.5}
           sx={{
-            mb: { xs: 5, md: 8 },
+            mb: { xs: 3, md: 8 },
             maxWidth: 540,
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -95,16 +95,19 @@ export default function ReportPreviewSection() {
           </Typography>
           <Typography
             variant="h2"
-            sx={{ fontSize: { xs: "2rem", md: "2.75rem" } }}
+            sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
           >
             報告長什麼樣子
           </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: "1.1rem" }}>
+          <Typography
+            color="text.secondary"
+            sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}
+          >
             深色主題設計，色彩編碼標示重要度，重點一目瞭然
           </Typography>
         </Stack>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={{ xs: 3, md: 4 }}>
           <Grid size={{ xs: 12, md: 5 }}>
             <Stack spacing={2}>
               <Typography
@@ -127,13 +130,15 @@ export default function ReportPreviewSection() {
                   key={level.label}
                   elevation={0}
                   sx={{
-                    p: 2.5,
+                    p: { xs: 2, md: 2.5 },
                     bgcolor: level.bg,
                     border: "1px solid",
                     borderColor: level.borderColor,
-                    borderRadius: 3,
+                    borderRadius: "16px",
                     opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? "translateX(0)" : "translateX(-20px)",
+                    transform: isVisible
+                      ? "translateX(0)"
+                      : "translateX(-20px)",
                     transition: `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${0.25 + index * 0.1}s`,
                     "&:hover": {
                       borderColor: level.color,
@@ -156,7 +161,7 @@ export default function ReportPreviewSection() {
                     />
                     <Typography
                       color="text.secondary"
-                      sx={{ fontSize: "0.95rem" }}
+                      sx={{ fontSize: { xs: "0.85rem", md: "0.95rem" } }}
                     >
                       {level.desc}
                     </Typography>
@@ -190,9 +195,21 @@ export default function ReportPreviewSection() {
                 </Typography>
                 <Stack spacing={1.5}>
                   {[
-                    { score: 9, title: "SEC 批准首檔現貨以太坊 ETF", color: "#EF4444" },
-                    { score: 7, title: "比特幣突破 10 萬美元創歷史新高", color: "#F59E0B" },
-                    { score: 5, title: "Uniswap V4 正式部署主網", color: "#3B82F6" },
+                    {
+                      score: 9,
+                      title: "SEC 批准首檔現貨以太坊 ETF",
+                      color: "#EF4444",
+                    },
+                    {
+                      score: 7,
+                      title: "比特幣突破 10 萬美元創歷史新高",
+                      color: "#F59E0B",
+                    },
+                    {
+                      score: 5,
+                      title: "Uniswap V4 正式部署主網",
+                      color: "#3B82F6",
+                    },
                   ].map((item) => (
                     <Stack
                       key={item.title}
@@ -215,7 +232,9 @@ export default function ReportPreviewSection() {
                       >
                         {item.score}
                       </Typography>
-                      <Typography sx={{ fontSize: "0.95rem", color: "text.primary" }}>
+                      <Typography
+                        sx={{ fontSize: "0.95rem", color: "text.primary" }}
+                      >
                         {item.title}
                       </Typography>
                     </Stack>
@@ -247,11 +266,11 @@ export default function ReportPreviewSection() {
                   key={section.number}
                   elevation={0}
                   sx={{
-                    p: 3,
+                    p: { xs: 2.5, md: 3 },
                     bgcolor: "background.paper",
                     border: "1px solid",
                     borderColor: "rgba(148, 163, 184, 0.06)",
-                    borderRadius: 3,
+                    borderRadius: "16px",
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible ? "translateY(0)" : "translateY(20px)",
                     transition: `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${0.3 + index * 0.1}s`,
@@ -278,12 +297,21 @@ export default function ReportPreviewSection() {
                       {section.number}
                     </Typography>
                     <Box>
-                      <Typography variant="h6" sx={{ fontSize: "1.15rem", mb: 0.75 }}>
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          fontSize: { xs: "1rem", md: "1.15rem" },
+                          mb: 0.75,
+                        }}
+                      >
                         {section.title}
                       </Typography>
                       <Typography
                         color="text.secondary"
-                        sx={{ lineHeight: 1.85, fontSize: "0.95rem" }}
+                        sx={{
+                          lineHeight: { xs: 1.7, md: 1.85 },
+                          fontSize: { xs: "0.85rem", md: "0.95rem" },
+                        }}
                       >
                         {section.description}
                       </Typography>

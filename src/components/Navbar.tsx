@@ -99,7 +99,8 @@ export default function Navbar() {
           paper: {
             sx: {
               bgcolor: "#111827",
-              width: 260,
+              width: { xs: "75vw", sm: 260 },
+              maxWidth: 260,
               borderLeft: "1px solid rgba(148, 163, 184, 0.06)",
             },
           },

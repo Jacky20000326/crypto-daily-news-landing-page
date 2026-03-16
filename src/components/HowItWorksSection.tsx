@@ -46,7 +46,7 @@ export default function HowItWorksSection() {
       component="section"
       ref={ref}
       className="dot-grid"
-      sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 10, md: 16 } }}
+      sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 16 } }}
     >
       <Container maxWidth="lg">
         <Stack
@@ -72,16 +72,16 @@ export default function HowItWorksSection() {
           </Typography>
           <Typography
             variant="h2"
-            sx={{ fontSize: { xs: "2rem", md: "2.75rem" } }}
+            sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
           >
             打開信箱就好
           </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: "1.1rem" }}>
+          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
             你完全不需要做任何事，每天三個步驟自動完成
           </Typography>
         </Stack>
 
-        <Stack direction={{ xs: "column", md: "row" }} spacing={3}>
+        <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 2, md: 3 }}>
           {steps.map((step, index) => (
             <Paper
               key={step.number}
@@ -92,7 +92,7 @@ export default function HowItWorksSection() {
                 bgcolor: "background.paper",
                 border: "1px solid",
                 borderColor: "rgba(148, 163, 184, 0.06)",
-                borderRadius: 4,
+                borderRadius: "16px",
                 position: "relative",
                 overflow: "hidden",
                 opacity: isVisible ? 1 : 0,
@@ -132,13 +132,13 @@ export default function HowItWorksSection() {
                   </Box>
                 </Stack>
 
-                <Typography variant="h6" sx={{ fontSize: "1.25rem" }}>
+                <Typography variant="h6" sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
                   {step.title}
                 </Typography>
 
                 <Typography
                   color="text.secondary"
-                  sx={{ lineHeight: 1.85, fontSize: "1rem" }}
+                  sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.875rem", md: "1rem" } }}
                 >
                   {step.description}
                 </Typography>
