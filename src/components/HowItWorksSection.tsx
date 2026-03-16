@@ -46,7 +46,7 @@ export default function HowItWorksSection() {
       component="section"
       ref={ref}
       className="dot-grid"
-      sx={{ py: { xs: 10, md: 16 } }}
+      sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 10, md: 16 } }}
     >
       <Container maxWidth="lg">
         <Stack

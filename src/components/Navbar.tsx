@@ -14,6 +14,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
+import Logo from "./Logo";
 
 const navItems = [
   { label: "運作方式", href: "#how-it-works" },
@@ -41,35 +42,20 @@ export default function Navbar() {
       >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ gap: 1.5, minHeight: { xs: 56, md: 64 } }}>
-            <Box
-              sx={{
-                width: 28,
-                height: 28,
-                borderRadius: "8px",
-                background: "linear-gradient(135deg, #F7931A, #D97706)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "0.75rem",
-                fontWeight: 800,
-                color: "#0A0E17",
-                letterSpacing: "-0.05em",
-              }}
-            >
-              CD
+            <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", gap: 1 }}>
+              <Logo iconOnly size={32} />
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  color: "text.primary",
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                Crypto Daily
+              </Typography>
             </Box>
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: 700,
-                fontSize: "1rem",
-                flexGrow: 1,
-                color: "text.primary",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Crypto Daily
-            </Typography>
 
             <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5 }}>
               {navItems.map((item) => (
