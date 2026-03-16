@@ -1,12 +1,10 @@
-"use client";
-
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import ScrollRevealWrapper from "./ScrollRevealWrapper";
 
 const features = [
   {
@@ -63,150 +61,143 @@ const features = [
 ];
 
 export default function FeaturesSection() {
-  const { ref, isVisible } = useScrollReveal();
-
   return (
-    <Box
-      id="features"
-      component="section"
-      ref={ref}
-      sx={{
-        py: { xs: 6, md: 16 },
-        background:
-          "linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,0.4) 50%, rgba(17,24,39,0) 100%)",
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack
-          spacing={1.5}
-          sx={{
-            mb: { xs: 3, md: 8 },
-            maxWidth: 540,
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(24px)",
-            transition: "all 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-        >
-          <Typography
-            variant="overline"
-            sx={{
-              color: "primary.main",
-              fontWeight: 600,
-              letterSpacing: "0.15em",
-              fontSize: "0.8rem",
-            }}
+    <ScrollRevealWrapper>
+      <Box
+        id="features"
+        component="section"
+        sx={{
+          py: { xs: 6, md: 16 },
+          background:
+            "linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,0.4) 50%, rgba(17,24,39,0) 100%)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack
+            spacing={1.5}
+            className="reveal-up"
+            sx={{ mb: { xs: 3, md: 8 }, maxWidth: 540 }}
           >
-            智慧分析
-          </Typography>
-          <Typography
-            variant="h2"
-            sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
-          >
-            AI 幫你讀新聞、抓重點
-          </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
-            每天數十上百則加密貨幣新聞，哪些值得看？讓 AI 幫你判斷
-          </Typography>
-        </Stack>
+            <Typography
+              variant="overline"
+              sx={{
+                color: "primary.main",
+                fontWeight: 600,
+                letterSpacing: "0.15em",
+                fontSize: "0.8rem",
+              }}
+            >
+              智慧分析
+            </Typography>
+            <Typography
+              variant="h2"
+              sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
+            >
+              AI 幫你讀新聞、抓重點
+            </Typography>
+            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
+              每天數十上百則加密貨幣新聞，哪些值得看？讓 AI 幫你判斷
+            </Typography>
+          </Stack>
 
-        <Grid container spacing={{ xs: 2, md: 3 }}>
-          {features.map((feature, index) => (
-            <Grid key={feature.title} size={{ xs: 12, sm: 6, lg: 4 }}>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: { xs: 2.5, md: 3.5 },
-                  height: "100%",
-                  bgcolor: "background.paper",
-                  border: "1px solid",
-                  borderColor: "rgba(148, 163, 184, 0.06)",
-                  borderRadius: "16px",
-                  position: "relative",
-                  overflow: "hidden",
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0)" : "translateY(24px)",
-                  transition: `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${0.1 + index * 0.08}s`,
-                  "&:hover": {
-                    borderColor: `${feature.accent}25`,
-                    "& .feature-value": {
-                      transform: "scale(1.05)",
+          <Grid container spacing={{ xs: 2, md: 3 }}>
+            {features.map((feature, index) => (
+              <Grid key={feature.title} size={{ xs: 12, sm: 6, lg: 4 }}>
+                <Paper
+                  elevation={0}
+                  className="reveal-up"
+                  style={{ transitionDelay: `${0.1 + index * 0.08}s` }}
+                  sx={{
+                    p: { xs: 2.5, md: 3.5 },
+                    height: "100%",
+                    bgcolor: "background.paper",
+                    border: "1px solid",
+                    borderColor: "rgba(148, 163, 184, 0.06)",
+                    borderRadius: "16px",
+                    position: "relative",
+                    overflow: "hidden",
+                    "&:hover": {
+                      borderColor: `${feature.accent}25`,
+                      "& .feature-value": {
+                        transform: "scale(1.05)",
+                      },
                     },
-                  },
-                }}
-              >
-                <Stack spacing={2}>
-                  <Box sx={{ pb: 0.5 }}>
-                    {feature.indicators ? (
-                      <Stack direction="row" spacing={2}>
-                        {feature.indicators.map((ind) => (
-                          <Stack
-                            key={ind.label}
-                            direction="row"
-                            spacing={0.75}
-                            alignItems="center"
+                  }}
+                >
+                  <Stack spacing={2}>
+                    <Box sx={{ pb: 0.5 }}>
+                      {feature.indicators ? (
+                        <Stack direction="row" spacing={2}>
+                          {feature.indicators.map((ind) => (
+                            <Stack
+                              key={ind.label}
+                              direction="row"
+                              spacing={0.75}
+                              alignItems="center"
+                            >
+                              <Typography
+                                sx={{
+                                  fontSize: { xs: "1.2rem", md: "1.4rem" },
+                                  fontWeight: 700,
+                                  color: ind.color,
+                                  lineHeight: 1,
+                                }}
+                              >
+                                {ind.symbol}
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  color: ind.color,
+                                  opacity: 0.8,
+                                  fontSize: "0.85rem",
+                                }}
+                              >
+                                {ind.label}
+                              </Typography>
+                            </Stack>
+                          ))}
+                        </Stack>
+                      ) : (
+                        <Stack direction="row" spacing={0.75} alignItems="baseline">
+                          <Typography
+                            className="feature-value"
+                            sx={{
+                              fontSize: { xs: "1.75rem", md: "2rem" },
+                              fontWeight: 700,
+                              color: feature.accent,
+                              lineHeight: 1,
+                              transition: "transform 0.3s ease",
+                              fontFamily: '"DM Mono", monospace',
+                            }}
                           >
-                            <Typography
-                              sx={{
-                                fontSize: { xs: "1.2rem", md: "1.4rem" },
-                                fontWeight: 700,
-                                color: ind.color,
-                                lineHeight: 1,
-                              }}
-                            >
-                              {ind.symbol}
-                            </Typography>
-                            <Typography
-                              sx={{
-                                color: ind.color,
-                                opacity: 0.8,
-                                fontSize: "0.85rem",
-                              }}
-                            >
-                              {ind.label}
-                            </Typography>
-                          </Stack>
-                        ))}
-                      </Stack>
-                    ) : (
-                      <Stack direction="row" spacing={0.75} alignItems="baseline">
-                        <Typography
-                          className="feature-value"
-                          sx={{
-                            fontSize: { xs: "1.75rem", md: "2rem" },
-                            fontWeight: 700,
-                            color: feature.accent,
-                            lineHeight: 1,
-                            transition: "transform 0.3s ease",
-                            fontFamily: '"DM Mono", monospace',
-                          }}
-                        >
-                          {feature.value}
-                        </Typography>
-                        <Typography
-                          sx={{ color: "text.secondary", fontSize: "0.9rem" }}
-                        >
-                          {feature.unit}
-                        </Typography>
-                      </Stack>
-                    )}
-                  </Box>
+                            {feature.value}
+                          </Typography>
+                          <Typography
+                            sx={{ color: "text.secondary", fontSize: "0.9rem" }}
+                          >
+                            {feature.unit}
+                          </Typography>
+                        </Stack>
+                      )}
+                    </Box>
 
-                  <Typography variant="h6" sx={{ fontSize: { xs: "1rem", md: "1.15rem" } }}>
-                    {feature.title}
-                  </Typography>
+                    <Typography variant="h6" sx={{ fontSize: { xs: "1rem", md: "1.15rem" } }}>
+                      {feature.title}
+                    </Typography>
 
-                  <Typography
-                    color="text.secondary"
-                    sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.85rem", md: "0.95rem" } }}
-                  >
-                    {feature.description}
-                  </Typography>
-                </Stack>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Box>
+                    <Typography
+                      color="text.secondary"
+                      sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+                    >
+                      {feature.description}
+                    </Typography>
+                  </Stack>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+    </ScrollRevealWrapper>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 interface LogoProps {
   /** 僅顯示圖示，不顯示文字 */
   iconOnly?: boolean;

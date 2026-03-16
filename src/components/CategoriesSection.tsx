@@ -1,5 +1,3 @@
-"use client";
-
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -14,7 +12,7 @@ import BrushIcon from "@mui/icons-material/Brush";
 import ShieldIcon from "@mui/icons-material/Shield";
 import PublicIcon from "@mui/icons-material/Public";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import ScrollRevealWrapper from "./ScrollRevealWrapper";
 
 const categories = [
   {
@@ -68,104 +66,97 @@ const categories = [
 ];
 
 export default function CategoriesSection() {
-  const { ref, isVisible } = useScrollReveal();
-
   return (
-    <Box
-      id="categories"
-      component="section"
-      ref={ref}
-      sx={{
-        py: { xs: 6, md: 16 },
-        background:
-          "linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,0.4) 50%, rgba(17,24,39,0) 100%)",
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack
-          spacing={1.5}
-          sx={{
-            mb: { xs: 3, md: 8 },
-            maxWidth: 540,
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(24px)",
-            transition: "all 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-        >
-          <Typography
-            variant="overline"
-            sx={{
-              color: "primary.main",
-              fontWeight: 600,
-              letterSpacing: "0.15em",
-              fontSize: "0.8rem",
-            }}
+    <ScrollRevealWrapper>
+      <Box
+        id="categories"
+        component="section"
+        sx={{
+          py: { xs: 6, md: 16 },
+          background:
+            "linear-gradient(180deg, rgba(17,24,39,0) 0%, rgba(17,24,39,0.4) 50%, rgba(17,24,39,0) 100%)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack
+            spacing={1.5}
+            className="reveal-up"
+            sx={{ mb: { xs: 3, md: 8 }, maxWidth: 540 }}
           >
-            涵蓋面向
-          </Typography>
-          <Typography
-            variant="h2"
-            sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
-          >
-            8 大新聞分類
-          </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
-            從市場行情到總體經濟，全面涵蓋加密貨幣世界的各個面向
-          </Typography>
-        </Stack>
+            <Typography
+              variant="overline"
+              sx={{
+                color: "primary.main",
+                fontWeight: 600,
+                letterSpacing: "0.15em",
+                fontSize: "0.8rem",
+              }}
+            >
+              涵蓋面向
+            </Typography>
+            <Typography
+              variant="h2"
+              sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
+            >
+              8 大新聞分類
+            </Typography>
+            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
+              從市場行情到總體經濟，全面涵蓋加密貨幣世界的各個面向
+            </Typography>
+          </Stack>
 
-        <Grid container spacing={{ xs: 1.5, md: 3 }}>
-          {categories.map((cat, index) => (
-            <Grid key={cat.name} size={{ xs: 6, sm: 4, md: 3 }}>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: { xs: 2, md: 3 },
-                  height: "100%",
-                  bgcolor: "background.paper",
-                  border: "1px solid",
-                  borderColor: "rgba(148, 163, 184, 0.06)",
-                  borderRadius: "16px",
-                  cursor: "default",
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0)" : "translateY(20px)",
-                  transition: `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${0.1 + index * 0.05}s`,
-                  "&:hover": {
-                    borderColor: `${cat.color}30`,
-                    bgcolor: `${cat.color}05`,
-                    "& .cat-icon": {
-                      transform: "scale(1.1)",
-                      color: cat.color,
+          <Grid container spacing={{ xs: 1.5, md: 3 }}>
+            {categories.map((cat, index) => (
+              <Grid key={cat.name} size={{ xs: 6, sm: 4, md: 3 }}>
+                <Paper
+                  elevation={0}
+                  className="reveal-up"
+                  style={{ transitionDelay: `${0.1 + index * 0.05}s` }}
+                  sx={{
+                    p: { xs: 2, md: 3 },
+                    height: "100%",
+                    bgcolor: "background.paper",
+                    border: "1px solid",
+                    borderColor: "rgba(148, 163, 184, 0.06)",
+                    borderRadius: "16px",
+                    cursor: "default",
+                    "&:hover": {
+                      borderColor: `${cat.color}30`,
+                      bgcolor: `${cat.color}05`,
+                      "& .cat-icon": {
+                        transform: "scale(1.1)",
+                        color: cat.color,
+                      },
                     },
-                  },
-                }}
-              >
-                <Stack spacing={{ xs: 1, md: 1.5 }}>
-                  <Box
-                    className="cat-icon"
-                    sx={{
-                      color: `${cat.color}99`,
-                      display: "flex",
-                      transition: "all 0.3s ease",
-                    }}
-                  >
-                    {cat.icon}
-                  </Box>
-                  <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.95rem", md: "1.05rem" } }}>
-                    {cat.name}
-                  </Typography>
-                  <Typography
-                    color="text.secondary"
-                    sx={{ lineHeight: { xs: 1.6, md: 1.75 }, fontSize: { xs: "0.8rem", md: "0.9rem" } }}
-                  >
-                    {cat.desc}
-                  </Typography>
-                </Stack>
-              </Paper>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Box>
+                  }}
+                >
+                  <Stack spacing={{ xs: 1, md: 1.5 }}>
+                    <Box
+                      className="cat-icon"
+                      sx={{
+                        color: `${cat.color}99`,
+                        display: "flex",
+                        transition: "all 0.3s ease",
+                      }}
+                    >
+                      {cat.icon}
+                    </Box>
+                    <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.95rem", md: "1.05rem" } }}>
+                      {cat.name}
+                    </Typography>
+                    <Typography
+                      color="text.secondary"
+                      sx={{ lineHeight: { xs: 1.6, md: 1.75 }, fontSize: { xs: "0.8rem", md: "0.9rem" } }}
+                    >
+                      {cat.desc}
+                    </Typography>
+                  </Stack>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+    </ScrollRevealWrapper>
   );
 }

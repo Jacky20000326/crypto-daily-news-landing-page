@@ -1,5 +1,3 @@
-"use client";
-
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -8,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import ScrollRevealWrapper from "./ScrollRevealWrapper";
 
 const steps = [
   {
@@ -38,115 +36,108 @@ const steps = [
 ];
 
 export default function HowItWorksSection() {
-  const { ref, isVisible } = useScrollReveal();
-
   return (
-    <Box
-      id="how-it-works"
-      component="section"
-      ref={ref}
-      className="dot-grid"
-      sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 16 } }}
-    >
-      <Container maxWidth="lg">
-        <Stack
-          spacing={1.5}
-          sx={{
-            mb: { xs: 5, md: 8 },
-            maxWidth: 520,
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? "translateY(0)" : "translateY(24px)",
-            transition: "all 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-        >
-          <Typography
-            variant="overline"
-            sx={{
-              color: "primary.main",
-              fontWeight: 600,
-              letterSpacing: "0.15em",
-              fontSize: "0.8rem",
-            }}
+    <ScrollRevealWrapper>
+      <Box
+        id="how-it-works"
+        component="section"
+        className="dot-grid"
+        sx={{ pt: { xs: 6, md: 10 }, pb: { xs: 6, md: 16 } }}
+      >
+        <Container maxWidth="lg">
+          <Stack
+            spacing={1.5}
+            className="reveal-up"
+            sx={{ mb: { xs: 5, md: 8 }, maxWidth: 520 }}
           >
-            運作方式
-          </Typography>
-          <Typography
-            variant="h2"
-            sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
-          >
-            打開信箱就好
-          </Typography>
-          <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
-            你完全不需要做任何事，每天三個步驟自動完成
-          </Typography>
-        </Stack>
-
-        <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 2, md: 3 }}>
-          {steps.map((step, index) => (
-            <Paper
-              key={step.number}
-              elevation={0}
+            <Typography
+              variant="overline"
               sx={{
-                flex: 1,
-                p: { xs: 3, md: 4 },
-                bgcolor: "background.paper",
-                border: "1px solid",
-                borderColor: "rgba(148, 163, 184, 0.06)",
-                borderRadius: "16px",
-                position: "relative",
-                overflow: "hidden",
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(32px)",
-                transition: `all 0.7s cubic-bezier(0.4, 0, 0.2, 1) ${0.15 + index * 0.12}s`,
-                "&:hover": {
-                  borderColor: `${step.accent}30`,
-                  bgcolor: `${step.accent}04`,
-                },
-                "&::before": {
-                  content: '""',
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "2px",
-                  background: `linear-gradient(90deg, ${step.accent}, transparent)`,
-                  opacity: 0.5,
-                },
+                color: "primary.main",
+                fontWeight: 600,
+                letterSpacing: "0.15em",
+                fontSize: "0.8rem",
               }}
             >
-              <Stack spacing={2.5}>
-                <Stack direction="row" spacing={2} alignItems="center">
-                  <Typography
-                    className="font-mono"
-                    sx={{
-                      fontSize: "0.85rem",
-                      fontWeight: 500,
-                      color: step.accent,
-                      opacity: 0.6,
-                    }}
-                  >
-                    {step.number}
+              運作方式
+            </Typography>
+            <Typography
+              variant="h2"
+              sx={{ fontSize: { xs: "1.75rem", md: "2.75rem" } }}
+            >
+              打開信箱就好
+            </Typography>
+            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
+              你完全不需要做任何事，每天三個步驟自動完成
+            </Typography>
+          </Stack>
+
+          <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 2, md: 3 }}>
+            {steps.map((step, index) => (
+              <Paper
+                key={step.number}
+                elevation={0}
+                className="reveal-up-lg"
+                style={{ transitionDelay: `${0.15 + index * 0.12}s` }}
+                sx={{
+                  flex: 1,
+                  p: { xs: 3, md: 4 },
+                  bgcolor: "background.paper",
+                  border: "1px solid",
+                  borderColor: "rgba(148, 163, 184, 0.06)",
+                  borderRadius: "16px",
+                  position: "relative",
+                  overflow: "hidden",
+                  "&:hover": {
+                    borderColor: `${step.accent}30`,
+                    bgcolor: `${step.accent}04`,
+                  },
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "2px",
+                    background: `linear-gradient(90deg, ${step.accent}, transparent)`,
+                    opacity: 0.5,
+                  },
+                }}
+              >
+                <Stack spacing={2.5}>
+                  <Stack direction="row" spacing={2} alignItems="center">
+                    <Typography
+                      className="font-mono"
+                      sx={{
+                        fontSize: "0.85rem",
+                        fontWeight: 500,
+                        color: step.accent,
+                        opacity: 0.6,
+                      }}
+                    >
+                      {step.number}
+                    </Typography>
+                    <Box sx={{ color: step.accent, opacity: 0.8, display: "flex" }}>
+                      {step.icon}
+                    </Box>
+                  </Stack>
+
+                  <Typography variant="h6" sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
+                    {step.title}
                   </Typography>
-                  <Box sx={{ color: step.accent, opacity: 0.8, display: "flex" }}>
-                    {step.icon}
-                  </Box>
+
+                  <Typography
+                    color="text.secondary"
+                    sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.875rem", md: "1rem" } }}
+                  >
+                    {step.description}
+                  </Typography>
                 </Stack>
-
-                <Typography variant="h6" sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
-                  {step.title}
-                </Typography>
-
-                <Typography
-                  color="text.secondary"
-                  sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.875rem", md: "1rem" } }}
-                >
-                  {step.description}
-                </Typography>
-              </Stack>
-            </Paper>
-          ))}
-        </Stack>
-      </Container>
-    </Box>
+              </Paper>
+            ))}
+          </Stack>
+        </Container>
+      </Box>
+    </ScrollRevealWrapper>
   );
 }
