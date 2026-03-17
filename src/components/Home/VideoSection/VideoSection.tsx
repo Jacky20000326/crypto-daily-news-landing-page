@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import ScrollRevealWrapper from "./ScrollRevealWrapper";
+import ScrollRevealWrapper from "../ScrollRevealWrapper/ScrollRevealWrapper";
 
 export default function VideoSection() {
   return (
@@ -55,8 +55,10 @@ export default function VideoSection() {
                 inset: -1,
                 borderRadius: "16px",
                 padding: "1px",
-                background: "linear-gradient(135deg, rgba(247,147,26,0.3), transparent 60%)",
-                WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                background:
+                  "linear-gradient(135deg, rgba(247,147,26,0.3), transparent 60%)",
+                WebkitMask:
+                  "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
                 WebkitMaskComposite: "xor",
                 maskComposite: "exclude",
                 pointerEvents: "none",

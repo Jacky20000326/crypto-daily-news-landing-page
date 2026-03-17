@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import FlipText from "./FlipText";
+import FlipText from "../FlipText/FlipText";
 
 export default function HeroSection() {
   return (
@@ -28,7 +28,8 @@ export default function HeroSection() {
           width: 500,
           height: 500,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(247,147,26,0.06) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, rgba(247,147,26,0.06) 0%, transparent 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
           animation: "pulse-ring 8s ease-in-out infinite",
@@ -42,7 +43,8 @@ export default function HeroSection() {
           width: 400,
           height: 400,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(98,126,234,0.04) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, rgba(98,126,234,0.04) 0%, transparent 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
           animation: "pulse-ring 10s ease-in-out infinite 2s",
@@ -56,8 +58,10 @@ export default function HeroSection() {
           backgroundImage:
             "linear-gradient(rgba(148,163,184,1) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,1) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
-          maskImage: "linear-gradient(to bottom, white 0%, white 50%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, white 0%, white 50%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to bottom, white 0%, white 50%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, white 0%, white 50%, transparent 100%)",
           pointerEvents: "none",
         }}
       />
@@ -110,7 +114,8 @@ export default function HeroSection() {
               lineHeight: 1.15,
               maxWidth: 700,
               color: "text.primary",
-              animation: "fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both",
+              animation:
+                "fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both",
             }}
           >
             你的
@@ -138,7 +143,8 @@ export default function HeroSection() {
             spacing={2}
             sx={{
               pt: 1,
-              animation: "fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.45s both",
+              animation:
+                "fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.45s both",
             }}
           >
             <Button
@@ -154,7 +160,8 @@ export default function HeroSection() {
                 boxShadow: "0 4px 24px rgba(247, 147, 26, 0.25)",
                 transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                 "&:hover": {
-                  background: "linear-gradient(135deg, #FBBF24 0%, #F7931A 100%)",
+                  background:
+                    "linear-gradient(135deg, #FBBF24 0%, #F7931A 100%)",
                   boxShadow: "0 8px 32px rgba(247, 147, 26, 0.35)",
                   transform: "translateY(-1px)",
                 },
@@ -189,10 +196,13 @@ export default function HeroSection() {
             sx={{
               pt: { xs: 3, md: 6 },
               display: { xs: "none", md: "block" },
-              animation: "fadeIn 1s ease 1.2s both, float-gentle 3s ease-in-out infinite 1.2s",
+              animation:
+                "fadeIn 1s ease 1.2s both, float-gentle 3s ease-in-out infinite 1.2s",
             }}
           >
-            <KeyboardArrowDownIcon sx={{ fontSize: 24, color: "text.secondary", opacity: 0.4 }} />
+            <KeyboardArrowDownIcon
+              sx={{ fontSize: 24, color: "text.secondary", opacity: 0.4 }}
+            />
           </Box>
         </Stack>
       </Container>

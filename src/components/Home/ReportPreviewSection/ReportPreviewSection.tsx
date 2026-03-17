@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
-import ScrollRevealWrapper from "./ScrollRevealWrapper";
+import ScrollRevealWrapper from "../ScrollRevealWrapper/ScrollRevealWrapper";
 
 const reportSections = [
   {

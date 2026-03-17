@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import ScrollRevealWrapper from "./ScrollRevealWrapper";
+import ScrollRevealWrapper from "../ScrollRevealWrapper/ScrollRevealWrapper";
 
 const steps = [
   {
@@ -67,12 +67,18 @@ export default function HowItWorksSection() {
             >
               打開信箱就好
             </Typography>
-            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}
+            >
               你完全不需要做任何事，每天三個步驟自動完成
             </Typography>
           </Stack>
 
-          <Stack direction={{ xs: "column", md: "row" }} spacing={{ xs: 2, md: 3 }}>
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={{ xs: 2, md: 3 }}
+          >
             {steps.map((step, index) => (
               <Paper
                 key={step.number}
@@ -117,18 +123,26 @@ export default function HowItWorksSection() {
                     >
                       {step.number}
                     </Typography>
-                    <Box sx={{ color: step.accent, opacity: 0.8, display: "flex" }}>
+                    <Box
+                      sx={{ color: step.accent, opacity: 0.8, display: "flex" }}
+                    >
                       {step.icon}
                     </Box>
                   </Stack>
 
-                  <Typography variant="h6" sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" } }}>
+                  <Typography
+                    variant="h6"
+                    sx={{ fontSize: { xs: "1.1rem", md: "1.25rem" } }}
+                  >
                     {step.title}
                   </Typography>
 
                   <Typography
                     color="text.secondary"
-                    sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.875rem", md: "1rem" } }}
+                    sx={{
+                      lineHeight: { xs: 1.7, md: 1.85 },
+                      fontSize: { xs: "0.875rem", md: "1rem" },
+                    }}
                   >
                     {step.description}
                   </Typography>

@@ -12,7 +12,7 @@ import BrushIcon from "@mui/icons-material/Brush";
 import ShieldIcon from "@mui/icons-material/Shield";
 import PublicIcon from "@mui/icons-material/Public";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-import ScrollRevealWrapper from "./ScrollRevealWrapper";
+import ScrollRevealWrapper from "../ScrollRevealWrapper/ScrollRevealWrapper";
 
 const categories = [
   {
@@ -100,7 +100,10 @@ export default function CategoriesSection() {
             >
               8 大新聞分類
             </Typography>
-            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}
+            >
               從市場行情到總體經濟，全面涵蓋加密貨幣世界的各個面向
             </Typography>
           </Stack>
@@ -141,12 +144,20 @@ export default function CategoriesSection() {
                     >
                       {cat.icon}
                     </Box>
-                    <Typography sx={{ fontWeight: 600, fontSize: { xs: "0.95rem", md: "1.05rem" } }}>
+                    <Typography
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: "0.95rem", md: "1.05rem" },
+                      }}
+                    >
                       {cat.name}
                     </Typography>
                     <Typography
                       color="text.secondary"
-                      sx={{ lineHeight: { xs: 1.6, md: 1.75 }, fontSize: { xs: "0.8rem", md: "0.9rem" } }}
+                      sx={{
+                        lineHeight: { xs: 1.6, md: 1.75 },
+                        fontSize: { xs: "0.8rem", md: "0.9rem" },
+                      }}
                     >
                       {cat.desc}
                     </Typography>

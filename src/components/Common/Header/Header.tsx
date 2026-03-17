@@ -14,7 +14,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import Logo from "./Logo";
+import Logo from "../Icon/Logo/Logo";
 
 const navItems = [
   { label: "運作方式", href: "#how-it-works" },
@@ -36,13 +36,25 @@ export default function Navbar() {
         sx={{
           bgcolor: scrolled ? "rgba(10, 14, 23, 0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(24px) saturate(180%)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(148, 163, 184, 0.06)" : "none",
+          borderBottom: scrolled
+            ? "1px solid rgba(148, 163, 184, 0.06)"
+            : "none",
           transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
         <Container maxWidth="lg">
-          <Toolbar disableGutters sx={{ gap: 1.5, minHeight: { xs: 56, md: 64 } }}>
-            <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center", gap: 1 }}>
+          <Toolbar
+            disableGutters
+            sx={{ gap: 1.5, minHeight: { xs: 56, md: 64 } }}
+          >
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
               <Logo iconOnly size={32} />
               <Typography
                 variant="h6"

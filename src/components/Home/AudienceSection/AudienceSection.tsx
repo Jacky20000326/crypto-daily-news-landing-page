@@ -8,7 +8,7 @@ import ShowChartIcon from "@mui/icons-material/ShowChart";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 import AnalyticsOutlinedIcon from "@mui/icons-material/AnalyticsOutlined";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
-import ScrollRevealWrapper from "./ScrollRevealWrapper";
+import ScrollRevealWrapper from "../ScrollRevealWrapper/ScrollRevealWrapper";
 
 const audiences = [
   {
@@ -73,7 +73,10 @@ export default function AudienceSection() {
             >
               誰適合使用
             </Typography>
-            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}
+            >
               無論你的角色是什麼，只要關注加密貨幣，都能從中受益
             </Typography>
           </Stack>
@@ -122,13 +125,19 @@ export default function AudienceSection() {
                       {audience.icon}
                     </Box>
 
-                    <Typography variant="h6" sx={{ fontSize: { xs: "1.05rem", md: "1.2rem" } }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ fontSize: { xs: "1.05rem", md: "1.2rem" } }}
+                    >
                       {audience.title}
                     </Typography>
 
                     <Typography
                       color="text.secondary"
-                      sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.875rem", md: "1rem" } }}
+                      sx={{
+                        lineHeight: { xs: 1.7, md: 1.85 },
+                        fontSize: { xs: "0.875rem", md: "1rem" },
+                      }}
                     >
                       {audience.description}
                     </Typography>

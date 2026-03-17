@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
-import ScrollRevealWrapper from "./ScrollRevealWrapper";
+import ScrollRevealWrapper from "../ScrollRevealWrapper/ScrollRevealWrapper";
 
 const features = [
   {
@@ -30,8 +30,7 @@ const features = [
       { label: "中性", symbol: "\u2194", color: "#94A3B8" },
       { label: "負面", symbol: "\u2193", color: "#EF4444" },
     ],
-    description:
-      "每則新聞標示市場情緒方向，直覺掌握當日市場氛圍走向。",
+    description: "每則新聞標示市場情緒方向，直覺掌握當日市場氛圍走向。",
     accent: "#10B981",
   },
   {
@@ -95,7 +94,10 @@ export default function FeaturesSection() {
             >
               AI 幫你讀新聞、抓重點
             </Typography>
-            <Typography color="text.secondary" sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}>
+            <Typography
+              color="text.secondary"
+              sx={{ fontSize: { xs: "0.9rem", md: "1.1rem" } }}
+            >
               每天數十上百則加密貨幣新聞，哪些值得看？讓 AI 幫你判斷
             </Typography>
           </Stack>
@@ -158,7 +160,11 @@ export default function FeaturesSection() {
                           ))}
                         </Stack>
                       ) : (
-                        <Stack direction="row" spacing={0.75} alignItems="baseline">
+                        <Stack
+                          direction="row"
+                          spacing={0.75}
+                          alignItems="baseline"
+                        >
                           <Typography
                             className="feature-value"
                             sx={{
@@ -181,13 +187,19 @@ export default function FeaturesSection() {
                       )}
                     </Box>
 
-                    <Typography variant="h6" sx={{ fontSize: { xs: "1rem", md: "1.15rem" } }}>
+                    <Typography
+                      variant="h6"
+                      sx={{ fontSize: { xs: "1rem", md: "1.15rem" } }}
+                    >
                       {feature.title}
                     </Typography>
 
                     <Typography
                       color="text.secondary"
-                      sx={{ lineHeight: { xs: 1.7, md: 1.85 }, fontSize: { xs: "0.85rem", md: "0.95rem" } }}
+                      sx={{
+                        lineHeight: { xs: 1.7, md: 1.85 },
+                        fontSize: { xs: "0.85rem", md: "0.95rem" },
+                      }}
                     >
                       {feature.description}
                     </Typography>
