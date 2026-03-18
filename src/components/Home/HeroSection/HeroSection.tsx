@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import FlipText from "../FlipText/FlipText";
+import SubscribeForm from "./SubscribeForm/SubscribeForm";
 
 export default function HeroSection() {
   return (
@@ -138,63 +139,53 @@ export default function HeroSection() {
             整理好的加密貨幣新聞日報。不用自己逛十幾個網站，不用擔心錯過重要消息。
           </Typography>
 
+          <SubscribeForm />
+
+          {/* Secondary links */}
           <Stack
-            direction={{ xs: "column", sm: "row" }}
+            direction="row"
             spacing={2}
             sx={{
-              pt: 1,
-              animation:
-                "fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.45s both",
+              animation: "fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both",
             }}
           >
             <Button
-              variant="contained"
-              size="large"
               href="#how-it-works"
               sx={{
-                px: { xs: 3, md: 4 },
-                py: { xs: 1.25, md: 1.5 },
-                fontSize: { xs: "0.95rem", md: "1.05rem" },
-                borderRadius: "12px",
-                background: "linear-gradient(135deg, #F7931A 0%, #D97706 100%)",
-                boxShadow: "0 4px 24px rgba(247, 147, 26, 0.25)",
-                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                "&:hover": {
-                  background:
-                    "linear-gradient(135deg, #FBBF24 0%, #F7931A 100%)",
-                  boxShadow: "0 8px 32px rgba(247, 147, 26, 0.35)",
-                  transform: "translateY(-1px)",
-                },
-              }}
-            >
-              了解運作方式
-            </Button>
-            <Button
-              variant="outlined"
-              size="large"
-              href="#report"
-              sx={{
-                px: { xs: 3, md: 4 },
-                py: { xs: 1.25, md: 1.5 },
-                fontSize: { xs: "0.95rem", md: "1.05rem" },
-                borderRadius: "12px",
-                borderColor: "rgba(148,163,184,0.2)",
+                px: 2,
+                py: 0.5,
+                fontSize: "0.875rem",
                 color: "text.secondary",
                 transition: "all 0.3s ease",
                 "&:hover": {
-                  borderColor: "rgba(247, 147, 26, 0.4)",
                   color: "primary.main",
-                  bgcolor: "rgba(247, 147, 26, 0.03)",
+                  bgcolor: "transparent",
                 },
               }}
             >
-              查看報告範例
+              了解運作方式 →
+            </Button>
+            <Button
+              href="#report"
+              sx={{
+                px: 2,
+                py: 0.5,
+                fontSize: "0.875rem",
+                color: "text.secondary",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  color: "primary.main",
+                  bgcolor: "transparent",
+                },
+              }}
+            >
+              查看報告範例 →
             </Button>
           </Stack>
 
           <Box
             sx={{
-              pt: { xs: 3, md: 6 },
+              pt: { xs: 2, md: 4 },
               display: { xs: "none", md: "block" },
               animation:
                 "fadeIn 1s ease 1.2s both, float-gentle 3s ease-in-out infinite 1.2s",

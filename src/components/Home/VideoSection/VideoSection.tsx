@@ -10,7 +10,7 @@ export default function VideoSection() {
         component="section"
         className="reveal-up-lg"
         sx={{
-          py: { xs: 6, md: 12 },
+          py: { xs: 6, md: 8 },
           position: "relative",
           overflow: "hidden",
         }}
